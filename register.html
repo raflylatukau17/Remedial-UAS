@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyPertalite</title>
+    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+    <nav>
+        <div class="wrapper">
+            <div class="logo"><a href="">MyPertalite</a></div>
+            <div class="menu">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="produk.html">Produk</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="register.html">Register</a></li>
+                    <li><a href="login.html">Login</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container"> 
+    <h1>Register</h1>
+    <form name="fform">
+        <label>Fullname</label><br>
+        <input type="text" id="inama"><br>
+        <label>E-mail</label><br>
+        <input type="text" id="iemail"><br>
+        <label>Gender</label><br>
+        <select name="igender" size="1">
+          <option value=""> </option>   
+          <option value="ipria"> Pria </option> 
+          <option value="iwanita"> Wanita </option>
+          </select><br>
+        <label >City</label><br>
+        <select name="ikota" size="1">
+                            <option value=""> </option>   
+                            <option value="itimika"> Timika </option> 
+                            <option value="ijayapura"> Jayapura </option> 
+                            <option value="imakassar"> Makassar </option> 
+                            <option value="isurabaya"> Surabaya </option> 
+                            <option value="ijakarta"> Jakarta </option> 
+                            </select><br>
+        <label>Pasword (minimum 8 characters, Upper n lower case, special character and numeric letter)</label><br>
+        <input type="text" id="ipassword"><br>
+        <label>Confirm Password</label><br>
+        <input type="text" id="icpassword"><br>
+        <input type="submit" value="Register" class="btn" onclick="cekKelayakan()" //>
+    </form>
+
+    <script>
+
+        function cekKelayakan() {
+                var name = document.getElementById("inama").value;
+		            var email = document.getElementById("iemail").value;
+		            var password = document.getElementById("ipassword").value;			
+		            var cpassword = document.getElementById("icpassword").value;
+        
+                var pwd = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-])/;                                      
+                var filteremail = /^([a-z0-9_\.\-])+\@(([a-z0-9\-])+\.)+([a-z0-9]{2,4})+$/;
+                                 
+                if(email == '') {
+			              alert('Please enter your E-mail');
+                  }
+		              else if (!filteremail.test(email))
+		              {
+			              alert('Invalid email');  
+                  }else if(password=='') {
+			            alert('Please enter Password');
+		              } else if(cpassword==''){
+			            alert('Enter Confirm Password');
+		              }	else if(!pwd.test(password)){
+			            alert ('Upper case, Lower case, Special character and Numeric letter are required in Password filed');
+		              } else if(password != cpassword){
+			            alert ('Password not Matched');
+		              } else if(document.getElementById("ipassword").value.length < 8){
+			            alert ('Password minimum length is 8');
+		              } else	{	
+                  }
+                } 
+                
+
+        </script>
+    
+</body>
+</html>
